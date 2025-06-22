@@ -125,8 +125,9 @@ from datetime import datetime, date, time, timezone
 current = datetime.now()
 
 
-curr = current.strftime('%a %b %y, %H:%M:%S')
+curr = current.strftime('%a %d %b %y, %H:%M:%S')
 
 #print(date)
 # print(time)
 print(curr)
+#print(current)

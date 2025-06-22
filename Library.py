@@ -101,7 +101,7 @@ def view_book():
 
 while True:
     print("Welcome to our Python Class Library")
-    user_action = int(input("Are you adding or viewing a book?\n1.Add\n2.View\n"))
+    user_action = int(input("Are you adding or reading a book?\n1.Add\n2.Read\n"))
 
     if user_action == 1:
         add_books()
