@@ -1,7 +1,16 @@
 #Library system specifications
 # add/view books using classes
 # file storage
+import os
 
+os.mkdir('Library')
+os.chdir('Library')
+os.mkdir('ASE')
+os.mkdir('Civil')
+os.mkdir('CPE')
+os.mkdir('ECE')
+os.mkdir('Systems')
+os.mkdir('Mech')
 class Library:
     def __init__(self, book_title:str, book_author:str): #INITIALISES THE LIBRARY CLASS
         self.book_title = book_title
@@ -29,37 +38,51 @@ class ECEBooks(Library):
   pass
 class MechBooks(Library):
     pass
+class SystemsBooks(Library):
+    pass
 
 
 #functions to add and view books
 #add books
 def add_books()-> None:
-    book_type:int = int(input("What book are you adding to the library today?\n1.ASE\n2.Civil\n3.CPE\n4.ECE\n5.MECH\n"))
+    book_type:int = int(input("What book are you adding to the library today?\n1.ASE\n2.Civil\n3.CPE\n4.ECE\n5.MECH\n6.Systems\n"))
 
     if book_type == 1:
+        os.chdir('ASE')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         ASEBooks.store(title, author)
 
     elif book_type == 2:
+        os.chdir('Civil')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         CivilBooks.store(title, author)
     
     elif book_type == 3:
+        os.chdir('CPE')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         CPEBooks.store(title, author)
 
     elif book_type == 4:
+        os.chdir('ECE')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         ECEBooks.store(title, author)
 
     elif book_type == 5:
+        os.chdir('Mech')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         MechBooks.store(title, author)
+
+    elif book_type == 6:
+        os.chdir('Systems')
+        title = input("What is the book's title?\n")
+        author = input("Who is the book's author?\n")
+        SystemsBooks.store(title, author)
+
     else:
         print("Wrong input.Check again.")
 
@@ -68,32 +91,43 @@ def add_books()-> None:
 
 #view books
 def view_book():
-    book_type:int = int(input("What book are you viewing today?\n1.ASE\n2.Civil\n3.CPE\n4.ECE\n5.MECH\n"))
+    book_type:int = int(input("What book are you viewing today?\n1.ASE\n2.Civil\n3.CPE\n4.ECE\n5.MECH\n6.Systems\n"))
 
     if book_type == 1:
+        os.chdir('ASE')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         ASEBooks.retrieve(title, author)
 
     elif book_type == 2:
+        os.chdir('Civil')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         CivilBooks.retrieve(title, author)
 
     elif book_type == 3:
+        os.chdir('CPE')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         CPEBooks.retrieve(title, author)
 
-    elif book_type == 1:
+    elif book_type == 4:
+        os.chdir('ECE')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         ECEBooks.retrieve(title, author)
 
-    elif book_type == 1:
+    elif book_type == 5:
+        os.chdir('Mech')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         MechBooks.retrieve(title, author)
+
+    elif book_type == 6:
+        os.chdir('Systems')
+        title = input("What is the book's title?\n")
+        author = input("Who is the book's author?\n")
+        SystemsBooks.retrieve(title, author)
 
     else:
         print("Wrong input.Check again.")
