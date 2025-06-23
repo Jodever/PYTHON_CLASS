@@ -5,12 +5,18 @@ import os
 
 os.mkdir('Library')
 os.chdir('Library')
-os.mkdir('ASE')
-os.mkdir('Civil')
-os.mkdir('CPE')
-os.mkdir('ECE')
-os.mkdir('Systems')
-os.mkdir('Mech')
+departments = ['ASE', 'CIVIL', 'CPE', 'ECE', 'SYSTEMS', 'MECH']
+for i in departments:
+    os.mkdir(i)
+
+# os.mkdir('Library')
+# os.chdir('Library')
+# os.mkdir('ASE')
+# os.mkdir('Civil')
+# os.mkdir('CPE')
+# os.mkdir('ECE')
+# os.mkdir('Systems')
+# os.mkdir('Mech')
 class Library:
     def __init__(self, book_title:str, book_author:str): #INITIALISES THE LIBRARY CLASS
         self.book_title = book_title
