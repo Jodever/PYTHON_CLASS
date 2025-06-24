@@ -11,7 +11,6 @@ try:
 except FileExistsError:
     os.chdir('Library')
     root_dir = os.getcwd()
-    pass
 
 class Library:
     def __init__(self, book_title:str, book_author:str): #INITIALISES THE LIBRARY CLASS
@@ -19,13 +18,13 @@ class Library:
         self.book_author = book_author
 
     def store(book_title, book_author): #FUNCTION TO STORE THE BOOKS
-        cover = book_title +"\nby\n"+ book_author
+        cover = f'{book_title} by {book_author}'
         with open(cover, mode= 'w', encoding='utf-8') as c:
             c.write(input("Input your content\n"))
 
 
     def retrieve(book_title, book_author): #FUNCTION TO RETRIEVE BOOKS IN THE LIBRARY
-        cover = book_title +"\nby\n"+ book_author
+        cover = f'{book_title} by {book_author}'
         with open(cover, mode= 'r', encoding='utf-8') as c:
             print(c.read())
 
@@ -48,7 +47,7 @@ class SystemsBooks(Library):
 #functions to add and view books
 #add books
 def add_books()-> None:
-    book_type:int = int(input("What book are you adding to the library today?\n1.ASE\n2.Civil\n3.CPE\n4.ECE\n5.MECH\n6.Systems\n"))
+    book_type:int = int(input("What book are you adding to the library today?\n1.ASE\n2.CIVIL\n3.CPE\n4.ECE\n5.MECH\n6.Systems\n"))
 
     if book_type == 1:
         os.chdir('ASE')
@@ -57,7 +56,7 @@ def add_books()-> None:
         ASEBooks.store(title, author)
 
     elif book_type == 2:
-        os.chdir('Civil')
+        os.chdir('CIVIL')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         CivilBooks.store(title, author)
@@ -75,13 +74,13 @@ def add_books()-> None:
         ECEBooks.store(title, author)
 
     elif book_type == 5:
-        os.chdir('Mech')
+        os.chdir('MECH')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         MechBooks.store(title, author)
 
     elif book_type == 6:
-        os.chdir('Systems')
+        os.chdir('SYSTEMS')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         SystemsBooks.store(title, author)
@@ -104,7 +103,7 @@ def read_book():
         ASEBooks.retrieve(title, author)
 
     elif book_type == 2:
-        os.chdir('Civil')
+        os.chdir('CIVIL')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         CivilBooks.retrieve(title, author)
@@ -122,13 +121,13 @@ def read_book():
         ECEBooks.retrieve(title, author)
 
     elif book_type == 5:
-        os.chdir('Mech')
+        os.chdir('MECH')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         MechBooks.retrieve(title, author)
 
     elif book_type == 6:
-        os.chdir('Systems')
+        os.chdir('SYSTEMS')
         title = input("What is the book's title?\n")
         author = input("Who is the book's author?\n")
         SystemsBooks.retrieve(title, author)
@@ -139,8 +138,10 @@ def read_book():
 
 
 
+
+
 while True:
-    print("Welcome to our Python Class Library")
+    print("\nWelcome to our Python Class Library")
     user_action = int(input("Are you adding or reading a book?\n1.Add\n2.Read\n"))
     
     
