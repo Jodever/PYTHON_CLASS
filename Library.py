@@ -2,21 +2,17 @@
 # add/view books using classes
 # file storage
 import os
+try:
+    os.mkdir('Library')
+    os.chdir('Library')
+    departments = ['ASE', 'CIVIL', 'CPE', 'ECE', 'SYSTEMS', 'MECH']
+    for i in departments:
+        os.mkdir(i)
+except FileExistsError:
+    os.chdir('Library')
+    root_dir = os.getcwd()
+    pass
 
-os.mkdir('Library')
-os.chdir('Library')
-departments = ['ASE', 'CIVIL', 'CPE', 'ECE', 'SYSTEMS', 'MECH']
-for i in departments:
-    os.mkdir(i)
-
-# os.mkdir('Library')
-# os.chdir('Library')
-# os.mkdir('ASE')
-# os.mkdir('Civil')
-# os.mkdir('CPE')
-# os.mkdir('ECE')
-# os.mkdir('Systems')
-# os.mkdir('Mech')
 class Library:
     def __init__(self, book_title:str, book_author:str): #INITIALISES THE LIBRARY CLASS
         self.book_title = book_title
@@ -46,6 +42,7 @@ class MechBooks(Library):
     pass
 class SystemsBooks(Library):
     pass
+
 
 
 #functions to add and view books
@@ -92,11 +89,12 @@ def add_books()-> None:
     else:
         print("Wrong input.Check again.")
 
+
     
 
 
 #view books
-def view_book():
+def read_book():
     book_type:int = int(input("What book are you viewing today?\n1.ASE\n2.Civil\n3.CPE\n4.ECE\n5.MECH\n6.Systems\n"))
 
     if book_type == 1:
@@ -137,17 +135,26 @@ def view_book():
 
     else:
         print("Wrong input.Check again.")
+        
+
 
 
 while True:
     print("Welcome to our Python Class Library")
     user_action = int(input("Are you adding or reading a book?\n1.Add\n2.Read\n"))
-
+    
+    
     if user_action == 1:
         add_books()
+        os.chdir(root_dir)
 
-    elif user_action == 2:
-        view_book()
+    elif user_action == 2: 
+        read_book()
+        os.chdir(root_dir)
 
     else:
         print("That's a wrong choice")
+
+
+ 
+    
