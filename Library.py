@@ -2,6 +2,7 @@
 # add/view books using classes
 # file storage
 import os
+# os module for manaing file and directories
 try:
     os.mkdir('Library')
     os.chdir('Library')
@@ -46,7 +47,7 @@ class SystemsBooks(Library):
 
 #functions to add and view books
 #add books
-def add_books()-> None:
+def add_books():
     book_type:int = int(input("What book are you adding to the library today?\n1.ASE\n2.CIVIL\n3.CPE\n4.ECE\n5.MECH\n6.Systems\n"))
 
     if book_type == 1:
